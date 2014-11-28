@@ -1,6 +1,7 @@
 require 'faker'
  
  # Create Posts
+ # We use create! (with a 'bang') because it will raise an error if something goes wrong. 
  50.times do
    Post.create!(
      title:  Faker::Lorem.sentence,
