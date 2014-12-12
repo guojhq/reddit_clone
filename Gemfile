@@ -43,6 +43,10 @@ gem 'devise'
 gem 'figaro', '1.0'
 
 gem 'pundit'
+
+gem 'simple_form'
+
+gem 'country_select'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
