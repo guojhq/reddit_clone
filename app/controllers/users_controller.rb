@@ -6,6 +6,7 @@
        flash[:notice] = "User information updated"
        redirect_to edit_user_registration_path
      else
+       # Rails.logger.info(@user.errors.messages.inspect)
        flash[:error] = "Invalid user information"
        redirect_to edit_user_registration_path
      end
@@ -14,6 +15,6 @@
    private
  
    def user_params
-     params.require(:user).permit(:name)
+     params.require(:user).permit(:name, :avatar)
    end
  end

@@ -17,3 +17,6 @@
 
 # Ignore application configuration
 /config/application.yml
+
+#Ignore carrierwave default location to store files locally
+public/uploads
