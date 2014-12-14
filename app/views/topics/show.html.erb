@@ -18,17 +18,16 @@
               <small>
                 <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %> submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name%>
                 <%= post.comments.count %> Comments
-              <small>  
+              </small>  
             </div>  
             <div class="col-md-1">
               <%= image_tag(post.image.thumb.url) if post.image? %>
             </div>
           </div>
-          
-         
-        </div>
-      </div>
+        </div> 
+      </div>     
     <% end %>
+    <%= will_paginate @posts %>
   </div>
   <div class="col-md-4">
     <% if policy(Post.new).create? %>
