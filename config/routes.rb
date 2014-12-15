@@ -4,9 +4,12 @@ Rails.application.routes.draw do
     resources :users, only: [:update]
 
   resources :topics do
-    resources :posts, except: [:index] do
-      resources :comments, only: [:create, :destroy]
-    end
+    resources :posts, except: [:index]
+  end
+ 
+  # comment here is shallow nesting, only: [] means we don't want to create any /posts/:id routes, just posts/:post_id/comments.
+  resources :posts, only: [] do
+    resources :comments, only: [:create, :destroy]
   end
 
 
