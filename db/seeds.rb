@@ -31,52 +31,53 @@ require 'faker'
  # Create Posts
  # We use create! (with a 'bang') because it will raise an error if something goes wrong. 
 
- 50.times do
-   Post.create!(
-     user:   users.sample,
-     topic:  topics.sample,
-     title:  Faker::Lorem.sentence,
-     body:   Faker::Lorem.paragraph
-   )
- end
- posts = Post.all
- 
- # Create Comments
- 100.times do
-   Comment.create!(
-     user: users.sample, 
-     post: posts.sample,
-     body: Faker::Lorem.paragraph
-   )
- end
+50.times do
+  post = Post.create!(
+    user:   users.sample,
+    topic:  topics.sample,
+    title:  Faker::Lorem.sentence,
+    body:   Faker::Lorem.paragraph
+  )
 
- user = User.first
- user.skip_reconfirmation!
- user.save!
+  # set the create_at to a time within the past year
+  post.update_attributes!(created_at: rand(10.minutes .. 1.year).ago)
+  post.update_rank
+  
+end
+posts = Post.all
 
- admin = User.new(
-   name:      'Admin User',
-   email:     'admin@example.com',
-   password:  'helloworld',
-   role:      'admin'
- )
- admin.skip_confirmation!
- admin.save!
-
- moderator = User.new(
-   name:      'Moderator User',
-   email:     'moderator@example.com',
-   password:  'helloworld',
-   role:      'moderator'
- )
- moderator.skip_confirmation!
- moderator.save!
-
- member = User.new(
-   name:      'Member User',
-   email:     'member@example.com',
-   password:  'helloworld',
-   role:      'member'
+# Create Comments
+100.times do
+  Comment.create!(
+    user: users.sample, 
+    post: posts.sample,
+    body: Faker::Lorem.paragraph
+  )
+end
+user = User.first
+user.skip_reconfirmation!
+user.save!
+admin = User.new(
+  name:      'Admin User',
+  email:     'admin@example.com',
+  password:  'helloworld',
+  role:      'admin'
+)
+admin.skip_confirmation!
+admin.save!
+moderator = User.new(
+  name:      'Moderator User',
+  email:     'moderator@example.com',
+  password:  'helloworld',
+  role:      'moderator'
+)
+moderator.skip_confirmation!
+moderator.save!
+member = User.new(
+  name:      'Member User',
+  email:     'member@example.com',
+  password:  'helloworld',
+  role:      'member'
  )
  member.skip_confirmation!
  member.save!
