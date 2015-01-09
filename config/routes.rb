@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # comment here is shallow nesting, only: [] means we don't want to create any /posts/:id routes, just posts/:post_id/comments.
   resources :posts, only: [] do
     resources :comments, only: [:create, :destroy]
-
+    resources :favorites, only: [:create, :destroy]
     post '/up-vote' => 'votes#up_vote', as: :up_vote
     post '/down-vote' => 'votes#down_vote', as: :down_vote
   end
