@@ -69,6 +69,9 @@ gem 'will_paginate', '~> 3.0.5'
 gem "factory_girl_rails", "~> 4.0"
 
 gem 'newrelic_rpm'
+
+gem 'unicorn', group: :production
+gem 'unicorn', group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
