@@ -31,10 +31,12 @@
     <p><%= markdown @post.body %></p>
   </div>  
 </div> 
-<%= render partial: 'comments/comment', collection: @comments %> 
+<div class="js-comments">
+  <%= render partial: 'comments/comment', collection: @comments %> 
+</div>  
 <br /><br />
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-8 new-comments">
     <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment }%>
   </div>
 </div>    
