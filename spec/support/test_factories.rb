@@ -12,13 +12,6 @@ module TestFactories
     Post.create(post_options)  
   end
 
-  FactoryGirl.define do
-    factory :user do
-      email 'test@example.com'
-      password 'f4k3p455w0rd'
-    end
-  end
-
   def authenticated_user(options={})
     user_options = { email: "email#{rand}@fake.com", password: 'password' }.merge(options)
     user = User.new(user_options)

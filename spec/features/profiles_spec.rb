@@ -7,7 +7,7 @@ describe "Visiting profiles" do
 
   before do 
     Warden.test_mode!
-    @user = authenticated_user
+    @user = create(:user)
     @post = associated_post(user: @user)
     @comment = Comment.new(user: @user, body: "A Comment", post: @post)
     allow(@comment).to receive(:send_favorite_emails)
@@ -15,21 +15,7 @@ describe "Visiting profiles" do
     
   end
 
-  after do 
-    Warden.test_reset!
-    logout(:user)
-  end
-
   describe "not signed in" do
-
-    before do 
-      login_as(@user, :scope => :user)
-    end
-
-    after do 
-      Warden.test_reset!
-      logout(:user)
-    end
 
     it "shows profile" do
       visit user_path(@user)
@@ -44,6 +30,15 @@ describe "Visiting profiles" do
   end
 
   describe "signed in" do
+
+    before do 
+      login_as(@user, :scope => :user)
+    end
+
+    after do 
+      Warden.test_reset!
+      logout(:user)
+    end
 
     it "shows profile" do
       visit user_path(@user)

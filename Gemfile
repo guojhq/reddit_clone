@@ -18,6 +18,7 @@ end
 group :test do 
   gem 'rspec-rails', '~> 3.1.0'
   gem 'capybara'
+  gem 'database_cleaner'
 end
 
 # Use SCSS for stylesheets
@@ -70,8 +71,8 @@ gem "factory_girl_rails", "~> 4.0"
 
 gem 'newrelic_rpm'
 
-gem 'unicorn', group: :production
-gem 'unicorn', group: :development
+gem 'unicorn'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
