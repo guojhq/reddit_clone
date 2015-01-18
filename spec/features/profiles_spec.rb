@@ -1,17 +1,18 @@
 require 'rails_helper'
- 
+require 'pry'
+
 describe "Visiting profiles" do
  
   include Warden::Test::Helpers
 
   before do 
     Warden.test_mode!
-    @user = create(:user)
-    @post = create(:post, user: @user)
-    @comment = build(:comment, user: @user, post: @post)
+    @user = create(:user_with_posts_and_comments)
+    @post = @user.posts.first
+    @comment = @user.comments.first
     allow(@comment).to receive(:send_favorite_emails)
     @comment.save
-    
+    #binding.pry 
   end
 
   describe "not signed in" do
