@@ -1,24 +1,41 @@
 <br/>
-<div class="jumbotron">
-  <h1>Bloccit</h1>
-  <p>Bloccit is a resource for sharing links with your friends!</p>
-  <p>
-      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or 
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
-  </p>
-</div>
+<div id="welcome">
+  <div class="jumbotron">
+    <h1>电视剧服装论坛</h1>
+    <p>看电视，学穿衣!</p>
+    <p>
+        <%= link_to "登陆", new_user_session_path, class: 'btn btn-primary' %> or 
+        <%= link_to "注册", new_user_registration_path, class: 'btn btn-primary' %> today!
+    </p>
+  </div>
+</div>  
+
 
 <div class="row">
-  <div class="col-md-4">
-    <h2>Solves world hunger</h2>
-    <p>Bloccit will deliver food and water to those in need, all over the world.</p>
-  </div>
-  <div class="col-md-4">
-    <h2>Eliminates poverty</h2>
-    <p>Bloccit will deliver money and education to those in need, all over the world.</p>
-  </div>
-  <div class="col-md-4">
-    <h2>Makes you better looking</h2>
-    <p>Bloccit will make you better looking: it's scientifically proven to make men look like Ryan Gosling and women look like Shakira.</p>
-  </div>
+  <% @topics.each do |topic| %>
+    <% @carousels = topic.posts %>
+    <div id="topic" class="col-xs-12 col-lg-6">
+      <h2>
+        <%= link_to topic.name, topic %>
+      </h2>
+      <p>
+        <%= topic.description %>
+      </p>
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <%= render partial: 'posts/carousel', collection: @carousels, as: :post %>
+          
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div><!-- /.carousel -->
+    </div>
+  <% end %>
 </div>
+

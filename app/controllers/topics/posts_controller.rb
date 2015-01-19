@@ -78,7 +78,7 @@ private
         @post.create_vote
       end
     end
-    @post.present?
+    @post.valid?
   end
 
 end
