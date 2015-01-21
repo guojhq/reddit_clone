@@ -1,4 +1,4 @@
-<div class="media">
+<div class="media well col-md-6">
   <%= link_to user, class: 'pull-left' do %>
     <%= image_tag(user.avatar.profile.url) if user.avatar? %>
   <% end %>
@@ -7,8 +7,8 @@
       <%= link_to user.name, user %>
     </h4>
     <small>
-      <%= pluralize(user.posts_count, 'post') %>,
-      <%= pluralize(user.comments_count, 'comment') %>
+      <%= user.posts_count %> 帖子, 
+      <%= user.comments_count %>评论
     </small>
   </div>
 </div>

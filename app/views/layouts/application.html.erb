@@ -10,15 +10,15 @@
   <div class="container">
     <ul class="nav nav-tabs">
       <li><%= link_to "首页", root_path %></li>
-      <li><%= link_to "关于", about_path %></li>
       <li><%= link_to "所有话题", topics_path %></li>
       <li><%= link_to "所有热贴", posts_path %></li>
       <li><%= link_to "用户", users_path %></li>
-
+      <li><%= link_to "关于", about_path %></li>
+      
       <div class="pull-right user-info">
         <% if current_user %>
           <%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
-          Hello <%= link_to (current_user.name || current_user.email), current_user %>!
+          你好 <%= link_to (current_user.name || current_user.email), current_user %>!
           <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
             <span class="glyphicon glyphicon-user"></span>
           <% end %>
@@ -52,6 +52,7 @@
     <% end %>
 
     <%= yield %>
-  </div>  
+  </div> 
+
 </body>
 </html>

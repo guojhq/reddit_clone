@@ -1,3 +1,4 @@
+<br />
 <div class="row">
   <div class="col-md-8">
     <div class="media">
@@ -7,8 +8,7 @@
       <div class="media-body">
         <h2 class="media-heading"><%= @user.name %></h2>
         <small>
-          <%= pluralize(@user.posts.count, 'post') %>,
-          <div class='js-comments-count'><%= pluralize(@user.comments.count, 'comment') %></div>
+          <%= @user.posts.count%>帖子, <%= @user.comments.count %>评论
         </small>
       </div>
     </div>
@@ -20,8 +20,8 @@
 <div class="row">
    <div class="tabbable tabs-left">
      <ul class="nav nav-tabs">
-       <li class="active"><a href="#posts" data-toggle="tab">Posts</a></li>
-       <li><a href="#comments" data-toggle="tab">Comments</a></li>
+       <li class="active"><a href="#posts" data-toggle="tab">帖子</a></li>
+       <li><a href="#comments" data-toggle="tab">评论</a></li>
      </ul>
      <div class="tab-content">
        <div class="tab-pane active" id="posts">
