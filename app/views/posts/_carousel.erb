@@ -1,0 +1,11 @@
+<% if post.image? %>
+  <div class="row">
+    <%= link_to topic_post_path(topic, post) do %>  
+        <%= image_tag(post.image.url) %> 
+    <% end %>
+  </div> 
+<% end %>   
+
+
+
+     
