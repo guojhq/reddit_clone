@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     post '/down-vote' => 'votes#down_vote', as: :down_vote
   end
 
+  get 'tags/:tag', to: 'posts#index', as: "tag"
 
   get 'about' => 'welcome#about'
 

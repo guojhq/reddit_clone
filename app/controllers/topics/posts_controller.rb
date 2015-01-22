@@ -62,11 +62,11 @@ class Topics::PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:title, :body, :image)
-  end
-
 private
+
+  def post_params
+    params.require(:post).permit(:title, :body, :image, :all_tags)
+  end
 
   def save_with_initial_vote
     ActiveRecord::Base.transaction do 
