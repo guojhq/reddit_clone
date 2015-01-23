@@ -1,3 +1,4 @@
+<%= tinymce_assets %>
 
 <%= form_for [topic, post] do |f| %>
   <% if post.errors.any? %>
@@ -16,7 +17,7 @@
   <% end %>
   <%= form_group_tag(post.errors[:body]) do %>
     <%= f.label :body %>
-    <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
+    <%= f.text_area :body, rows: 8, class: "form-control tinymce", placeholder: "Enter post body" %>
   <% end %>
   <% if post.image? %>
     <%= form_group_tag(post.errors[:image]) do %>
@@ -39,6 +40,7 @@
   </div>
 <% end %>
 
+
 <!-- Simple form Gem: This will generate an entire form with labels , and render errors by default when you render the form with invalid data (after submitting for example). -->
 
 <!-- 
@@ -57,3 +59,6 @@
   <%= f.input :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
   <%= f.button :submit, class: 'btn btn-success' %>
 <% end %> -->
+
+
+<%= tinymce %>

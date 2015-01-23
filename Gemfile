@@ -76,6 +76,10 @@ gem 'unicorn'
 gem 'pry-rails', :group => :development
 
 gem 'jquery-turbolinks'
+
+gem 'tinymce-rails'
+
+gem 'tinymce-rails-langs'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

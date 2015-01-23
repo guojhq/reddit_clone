@@ -78,5 +78,7 @@ Rails.application.configure do
   
   #https://tranquil-river-8248.herokuapp.com/
   config.action_mailer.default_url_options = { host: 'tranquil-river-8248.herokuapp.com/' }
+  
+  config.serve_static_assets = true
 
 end
