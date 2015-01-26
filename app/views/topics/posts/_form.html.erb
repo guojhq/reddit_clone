@@ -60,5 +60,13 @@
   <%= f.button :submit, class: 'btn btn-success' %>
 <% end %> -->
 
+<script type="text/javascript">
+  tinyMCE.init({
+    mode: "textareas",
+    toolbar: "uploadimage",
+    plugins: "image,link,preview,uploadimage",
+    relative_urls: false,
+    uploadimage_form_url: "/static_images"
+  });
+</script>
 
-<%= tinymce %>

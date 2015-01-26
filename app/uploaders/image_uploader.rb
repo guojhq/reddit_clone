@@ -33,7 +33,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   # version :thumb do
-  process :resize_to_fill => [300, 300]
+  process :resize_to_width => [300, nil]
   # end
 
   version :thumb do 
@@ -52,4 +52,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+
+  def resize_to_width(width, height)
+    manipulate! do |img|
+      if img[:width] >= width
+        img.resize "#{width}x#{img[:height]}"
+      end
+      img = yield(img) if block_given?
+      img
+    end
+  end
+
 end
+  

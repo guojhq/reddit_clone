@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
-
+ 
   belongs_to :user
   belongs_to :topic
   mount_uploader :image, ImageUploader

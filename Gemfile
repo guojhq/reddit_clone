@@ -80,6 +80,8 @@ gem 'jquery-turbolinks'
 gem 'tinymce-rails'
 
 gem 'tinymce-rails-langs'
+
+gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
