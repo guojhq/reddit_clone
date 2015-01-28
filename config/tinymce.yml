@@ -1,8 +1,9 @@
 toolbar:
   - styleselect | bold italic | undo redo
-  - image | link | insertfile
+  - image | link
 plugins:
   - image
   - link
   - preview
-  - uploadimage
+relative_urls: 
+  - false

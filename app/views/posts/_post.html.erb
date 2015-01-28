@@ -2,7 +2,7 @@
   <%= render partial: 'votes/voter', locals: {post: post} %>
   <div class="media-body">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-8">
         <h4 class="media-heading">
           <%= link_to (markdown post.title), [post.topic, post] %>
         </h4>
@@ -11,9 +11,6 @@
           <%= post.comments.count %> 个评论
         </small>  
       </div>  
-      <div class="col-md-1">
-        <%= image_tag(post.image.thumb.url) if post.image? %>
-      </div>
     </div>
   </div> 
 </div>  

@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
+  has_many   :static_images
 
   default_scope { order('updated_at DESC') }
   validates :body, length: { minimum: 5 }, presence: true

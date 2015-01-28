@@ -3,6 +3,9 @@ class StaticImagesController < ApplicationController
 
   def create
     image = StaticImage.new
+    if params[:post_id]
+      image.post_id = params[:post_id]
+    end
     image.link = params[:file]
     image.save!
     render json: {

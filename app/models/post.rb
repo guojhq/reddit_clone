@@ -4,10 +4,10 @@ class Post < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
+  has_many :static_images
  
   belongs_to :user
   belongs_to :topic
-  mount_uploader :image, ImageUploader
   # The default scope declaration above will order all posts by their created_at date, in descending order.
   #default_scope { order('created_at DESC') }
   # scope :ordered_by_reverse_created_at, -> { order('created_at ASC') }
@@ -19,8 +19,8 @@ class Post < ActiveRecord::Base
   # Define the scope to return top 10 posts in descending order
   scope :top_ten, -> (user) { user ? Post.limit(10) : joins(:topic).where('topics.public' => true) }
 
-  validates :title, length: { minimum: 5 }, presence: true
-  validates :body, length: { minimum: 20 }, presence: true
+  validates :title, length: { minimum: 2 }, presence: true
+  validates :body, length: { minimum: 10 }, presence: true
   validates :topic, presence: true
   validates :user, presence: true
 

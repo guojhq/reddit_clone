@@ -1,3 +1,4 @@
+<%= tinymce_assets %>
 <h1>New Post</h1>
 
 <div class="row">
@@ -12,4 +13,6 @@
    <div class="col-md-8">
      <%= render partial: 'form', locals: { topic: @topic, post: @post }%>
    </div>
- </div>
+</div>
+
+<%= tinymce  :plugins => ["image", "link", "preview", "uploadimage"], :toolbar => ["uploadimage"], :uploadimage_form_url => "new/static_images" %>

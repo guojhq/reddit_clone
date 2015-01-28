@@ -18,10 +18,7 @@
       <h2>
         <%= link_to topic.name, topic %>
       </h2>
-
-      <div class="multiple-items">
-          <%= render partial: 'posts/carousel', collection: @carousels, as: :post, locals: {topic: topic}%>
-      </div>
+      <%= render partial: 'posts/carousel', collection: @carousels, as: :post, locals: {topic: topic}%>
       <div class="well">
         <p>热门剧集：</p>  
         <!--TODO: Add tags-->
