@@ -11,8 +11,8 @@
      </ul>
    </div>
    <div class="col-md-8">
-     <%= render partial: 'form', locals: { topic: @topic, post: @post }%>
+     <%= render partial: 'form', locals: { topic: @topic, post: @post, cached_images: @cached_images } %>
    </div>
 </div>
 
-<%= tinymce  :plugins => ["image", "link", "preview", "uploadimage"], :toolbar => ["uploadimage"], :uploadimage_form_url => "new/static_images" %>
+<%= tinymce  :plugins => ["image", "link", "preview", "uploadimage"], :toolbar => ["uploadimage"] %>

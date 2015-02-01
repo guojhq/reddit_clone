@@ -14,11 +14,13 @@
 <div class="row">
   <% @topics.each do |topic| %>
     <% @carousels = topic.posts.top_ten(current_user) %>
-    <div id="topic" class="col-xs-12 col-lg-6">
+    <div id="topic" class="col-xs-12 col-lg-12">
       <h2>
         <%= link_to topic.name, topic %>
       </h2>
-      <%= render partial: 'posts/carousel', collection: @carousels, as: :post, locals: {topic: topic}%>
+      <div class="multiple-items">
+        <%= render partial: 'posts/carousel', collection: @carousels, as: :post, locals: {topic: topic}%>
+      </div>  
       <div class="well">
         <p>热门剧集：</p>  
         <!--TODO: Add tags-->

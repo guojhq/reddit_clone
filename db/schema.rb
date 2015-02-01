@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128063014) do
+ActiveRecord::Schema.define(version: 20150201215338) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -34,19 +34,8 @@ ActiveRecord::Schema.define(version: 20150128063014) do
   add_index "favorites", ["post_id"], name: "index_favorites_on_post_id"
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
-  create_table "posts", force: true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "topic_id"
-    t.string   "image"
-    t.float    "rank"
-  end
-
-  add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+# Could not dump table "posts" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "static_images", force: true do |t|
     t.datetime "created_at"

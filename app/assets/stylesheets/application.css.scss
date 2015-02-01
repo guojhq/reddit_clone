@@ -39,3 +39,20 @@
 .voted {
   opacity: 0.5;
 }
+
+
+.slick-slide img {
+  width: 300px;
+}
+
+.slick-dots li button::before {
+  font-size: 20px;
+}
+
+.slick-prev::before, .slick-next::before {
+  font-size: 0px;
+}
+
+#hot_posts .slick-slide img {
+  width: 200px;
+}

@@ -11,11 +11,11 @@
 </div>
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-9">
     <%= render @posts %>
     <%= will_paginate @posts %>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <% if policy(Post.new).create? %>
       <%= link_to "创建新贴", new_topic_post_path(@topic), class: 'btn btn-success' %>
     <% end %>

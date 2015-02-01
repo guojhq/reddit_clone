@@ -4,8 +4,7 @@ class Post < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
-  has_many :static_images
- 
+
   belongs_to :user
   belongs_to :topic
   # The default scope declaration above will order all posts by their created_at date, in descending order.

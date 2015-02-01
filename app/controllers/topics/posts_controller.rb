@@ -1,4 +1,5 @@
 class Topics::PostsController < ApplicationController
+  respond_to :js, :html
   def show
     @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
@@ -17,14 +18,14 @@ class Topics::PostsController < ApplicationController
     # user specific post
     if save_with_initial_vote
       flash[:notice] = "Post was saved."
-      @post.static_images.each do |static_image|
-        static_image.post_id = @post.id
-      end
       redirect_to [@post.topic, @post] 
     else 
       flash[:error] = "There was an error saving the post. Please try again."
       render :new
     end
+    
+    
+
   end
 
 
@@ -68,7 +69,7 @@ class Topics::PostsController < ApplicationController
 private
 
   def post_params
-    params.require(:post).permit(:title, :body, :all_tags)
+    params.require(:post).permit(:title, :body, :all_tags, static_images_attributes: [:id])
   end
 
   def save_with_initial_vote

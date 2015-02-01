@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :posts, except: [:index], controller: 'topics/posts' do
       resources :static_images, only: [:create]
     end
+
   end
  
   # comment here is shallow nesting, only: [] means we don't want to create any /posts/:id routes, just posts/:post_id/comments.
@@ -17,8 +18,8 @@ Rails.application.routes.draw do
     post '/down-vote' => 'votes#down_vote', as: :down_vote
   end
 
-
   
+  post '/tinymce_assets', to: 'static_images#create'
   get 'tags/:tag', to: 'posts#index', as: "tag"
 
   get 'about' => 'welcome#about'

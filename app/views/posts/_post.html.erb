@@ -1,16 +1,32 @@
- <div class="media well">
+ <div class="media well" id="hot_posts">
   <%= render partial: 'votes/voter', locals: {post: post} %>
   <div class="media-body">
     <div class="row">
-      <div class="col-md-8">
         <h4 class="media-heading">
           <%= link_to (markdown post.title), [post.topic, post] %>
         </h4>
+        <div class="multiple-items">
+          <% regex = /<img.*\/>/ %>
+          <% images = post[:body].scan(regex) %>
+          <% if !images.empty?  %>
+            <% images.each do |image| %>
+              <div class="col-xs-4">
+                  <%= link_to topic_post_path(post.topic, post) do %>  
+                    <%= image.html_safe %>
+                  <% end %>
+              </div>  
+            <% end %>     
+          <% end %>  
+        </div>  
         <small>
           <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %> <%= post.user.name%>，发布于 <%= time_ago_in_words(post.created_at) %> 以前， 
           <%= post.comments.count %> 个评论
         </small>  
       </div>  
-    </div>
   </div> 
 </div>  
+
+
+
+
+
