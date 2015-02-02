@@ -63,11 +63,11 @@ class Post < ActiveRecord::Base
   end
 
   def self.top_ten_posts 
-     self.select('COUNT(DISTINCT comments.id) AS rank') 
+     self.select('COUNT(DISTINCT comments.id) AS comment_count') 
        .select('posts.*') # Select all attributes of the post
        .joins(:comments) # Ties the comments table to the post table, via the post_id
        .group('posts.id') # Instructs the database to group the results so that each post will be returned in a distinct row
-       .order('rank DESC') # Instructs the database to order the results in descending order, by the rank that we created in this query. (rank = comment count + post count)
+       .order('comment_count DESC') # Instructs the database to order the results in descending order, by the rank that we created in this query. (rank = comment count + post count)
        .limit(10)
   end
 
