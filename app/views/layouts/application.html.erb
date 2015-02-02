@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TV Drama Clothing Forum(电视剧服装论坛)</title>
+  <title>衣剧论坛</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -33,6 +33,7 @@
       </div>
 
     </ul>
+  </div>  
 
     <% if flash[:notice] %>
       <div class="alert alert-success">
@@ -52,7 +53,6 @@
     <% end %>
 
     <%= yield %>
-  </div> 
 
 </body>
 </html>

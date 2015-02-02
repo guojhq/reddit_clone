@@ -1,14 +1,16 @@
-<div class="row">
-  <h1>近期热贴排行</h1>
-  <p class="lead">看看大家都在讨论什么？</p>
-  <div class="col-md-9">
-    <%= render @posts %>
-    <%= will_paginate @posts %>
+<div class="container">
+  <div class="row">
+    <h1>近期热贴排行</h1>
+    <p class="lead">看看大家都在讨论什么？</p>
+    <div class="col-md-9">
+      <%= render @posts %>
+      <%= will_paginate @posts %>
+    </div>
+    <div class="col-md-3">
+      <h2> 热门标签 </h2>
+      <% tag_cloud Tag.counts,  %w{css1 css2 css3 css4} do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>
   </div>
-  <div class="col-md-3">
-    <h2> 热门标签 </h2>
-    <% tag_cloud Tag.counts,  %w{css1 css2 css3 css4} do |tag, css_class| %>
-      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-    <% end %>
-  </div>
-</div>
+</div>  

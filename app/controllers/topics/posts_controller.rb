@@ -1,5 +1,5 @@
 class Topics::PostsController < ApplicationController
-  respond_to :js, :html
+
   def show
     @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
@@ -24,7 +24,7 @@ class Topics::PostsController < ApplicationController
       render :new
     end
     
-    
+
 
   end
 

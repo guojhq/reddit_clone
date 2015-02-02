@@ -31,9 +31,12 @@ section {
    padding: 5px 5px 5px 5px;
  }
 
-
 .jumbotron {
   background: url(https://s3.amazonaws.com/chuan-bloccit-development/eifel.jpg) no-repeat center fixed;
   width: 100%;
   background-size: 100% 100%;
+}
+
+#top_topics {
+  background-color: pink;
 }

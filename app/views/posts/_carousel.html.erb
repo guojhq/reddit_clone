@@ -2,7 +2,7 @@
 <% images = post[:body].scan(regex) %>
 <% if !images.empty?  %>
   <div class="col-xs-4">
-      <%= link_to topic_post_path(topic, post) do %>  
+      <%= link_to topic_post_path(post.topic, post) do %>  
         <%= images[0].html_safe %>
       <% end %>
   </div>   

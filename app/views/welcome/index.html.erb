@@ -1,31 +1,52 @@
-<br/>
-<div id="welcome">
-  <div class="jumbotron">
-    <h1>电视剧服装论坛</h1>
-    <p>看电视，学穿衣!</p>
-    <p>
-        <%= link_to "登陆", new_user_session_path, class: 'btn btn-primary' %> or 
-        <%= link_to "注册", new_user_registration_path, class: 'btn btn-primary' %> today!
-    </p>
-  </div>
-</div>  
 
-
-<div class="row">
-  <% @topics.each do |topic| %>
-    <% @carousels = topic.posts.top_ten(current_user) %>
-    <div id="topic" class="col-xs-12 col-lg-12">
-      <h2>
-        <%= link_to topic.name, topic %>
-      </h2>
-      <div class="multiple-items">
-        <%= render partial: 'posts/carousel', collection: @carousels, as: :post, locals: {topic: topic}%>
-      </div>  
-      <div class="well">
-        <p>热门剧集：</p>  
-        <!--TODO: Add tags-->
-      </div>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-xs-9 col-xs-offset-1">
+      <h1>衣剧论坛</h1>
+      <p>做你的高级时尚顾问</p>
+      <p>
+          今天就 <%= link_to "登陆", new_user_session_path, class: 'btn btn-primary' %> 或者
+          <%= link_to "注册", new_user_registration_path, class: 'btn btn-primary' %>!
+      </p>
     </div>
-  <% end %>
+  </div>  
 </div>
 
+<div class="container">
+  <div class="row" id="top_posts">
+    <div class="col-xs-10">
+      <h2>十大热贴</h2>
+      <br /> 
+      <div class="col-xs-6">
+        <% @hotposts = Post.visible_to(current_user).top_ten_posts %>
+        <div class="single-item">
+          <%= render partial: 'posts/carousel', collection: @hotposts, as: :post %>
+        </div>
+      </div>
+      <div class="col-xs-6">  
+        <%= render partial: 'posts/top_post', collection: @hotposts, as: :post %>
+      </div>  
+    </div> 
+    <div class="col-xs-2">
+      <br />
+      <h2>热门标签</h2>
+        <% tag_cloud Tag.counts,  %w{css1 css2 css3 css4} do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div> 
+  </div>  
+  <br />
+  <div class="row">
+    <div class="col-xs-10"><h2>热门话题</h2></div>
+    <br /><br /> 
+    <% @topics.each do |topic| %>
+      <% @carousels = topic.posts.visible_to(current_user).top_ten_posts %>
+      <div class="col-xs-12 col-lg-12">
+        <h2><%= link_to topic.name, topic %></h2>
+        <div class="multiple-items">
+          <%= render partial: 'posts/carousel', collection: @carousels, as: :post %>
+        </div>  
+      </div>
+    <% end %>
+  </div>
+</div>

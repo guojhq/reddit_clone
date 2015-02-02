@@ -18,16 +18,25 @@ $(document).ready(function(){
       breakpoint: 992,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 3
+        slidesToScroll: 3,
+        dots: true
       }
     },
     {
       breakpoint: 768,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 2
+        slidesToScroll: 2,
+        dots: true
       }
     }
-  ]
+    ]
+  });
+
+  $('.single-item').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true
   });
 });
