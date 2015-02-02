@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // CSS tag selector
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 h1 {
   color: red;
 }

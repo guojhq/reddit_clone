@@ -81,6 +81,7 @@ Rails.application.configure do
   
   config.serve_static_assets = true
 
-  config.assets.precompile += %w( tinymce/plugins/uploadimage/plugin.js tinymce/plugins/uploadimage/langs/en.js )
+  config.assets.precompile += %w( tinymce/plugins/uploadimage/plugin.js tinymce/plugins/uploadimage/langs/en.js *.woff *.ttf *.svg) 
+
 
 end
