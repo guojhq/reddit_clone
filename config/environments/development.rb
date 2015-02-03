@@ -45,7 +45,7 @@ Rails.application.configure do
   
   # Tell Action Mailer to raise informative errors if it fails.
   config.raise_delivery_errors = true
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
-  config.assets.precompile += %w( tinymce/plugins/uploadimage/plugin.js tinymce/plugins/uploadimage/langs/en.js *.woff *.ttf *.svg )
+  config.assets.precompile += %w( tinymce/plugins/uploadimage/plugin.js tinymce/plugins/uploadimage/langs/en.js)
 end

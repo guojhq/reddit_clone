@@ -79,9 +79,9 @@ Rails.application.configure do
   #https://tranquil-river-8248.herokuapp.com/
   config.action_mailer.default_url_options = { host: 'tranquil-river-8248.herokuapp.com/' }
   
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
-  config.assets.precompile += %w( tinymce/plugins/uploadimage/plugin.js tinymce/plugins/uploadimage/langs/en.js *.woff *.ttf *.svg) 
+  config.assets.precompile += %w( tinymce/plugins/uploadimage/plugin.js tinymce/plugins/uploadimage/langs/en.js) 
 
 
 end
